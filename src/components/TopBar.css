@@ -1,0 +1,10 @@
+.topBar {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0px 25px;
+    height: 42px;
+    line-height: 42px;
+    text-align: right;
+    color: #fff;
+    background-color: #212121;
+}

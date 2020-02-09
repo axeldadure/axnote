@@ -1,0 +1,105 @@
+.rightFrame form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    align-items: stretch;
+}
+
+    .rightTextCt {
+        width: 100%;
+        height: calc(100% - 60px);
+        padding: 40px;
+        box-sizing: border-box;
+        position: relative;
+    }
+
+        .rightTextFlex {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+            .rightTextInput {
+                width: 100%;
+                height: 50px;
+                box-sizing: border-box;
+                padding-bottom: 10px;
+                margin-bottom: 25px;
+            }
+
+                .rightTextInput input{
+                    width: 100%;
+                    font-size: 30px;
+                    font-weight: 700;
+                    line-height: 40px;
+                    box-sizing: border-box;
+                    margin: 0;
+                    padding: 0px;
+                    transition: 0.2s all ease-out;
+                    border: 0px;
+                    font-family: 'Nunito', sans-serif;
+                }
+
+                    .rightTextInput input:focus,
+                    .rightSave input:focus,
+                    .rightTextTextarea textarea:focus {
+                        outline: none!important;
+                    }
+
+            .rightTextTextarea {
+                height: calc(100% - 25px);
+            }
+
+                .rightTextTextarea textarea{
+                    width: 100%;
+                    height: 100%;
+                    display: block;
+                    box-sizing: border-box;
+                    margin: 0;
+                    padding: 0px;
+                    transition: 0.2s all ease-out;
+                    border: 0px;
+                    font-family: 'Nunito', sans-serif;
+                    resize: none;
+                }
+
+    .rightSave {
+        width: 80px;
+        height: 80px;
+        position: absolute;
+        bottom: 60px;
+        right: 60px;
+    }
+
+        .rightSave input {
+            background-color: #2599ff;
+            border-radius: 50%;
+            border: 0px solid #fff;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+            -webkit-box-shadow: 0px 0px 31px -5px rgba(0,0,0,0.33);
+            -moz-box-shadow: 0px 0px 31px -5px rgba(0,0,0,0.33);
+            box-shadow: 0px 0px 31px -5px rgba(0,0,0,0.33);
+            transition: 0.2s all ease-out;
+        }
+
+        .rightSave.off input {
+            -webkit-box-shadow: 0px 0px 31px -5px rgba(0,0,0,0);
+            -moz-box-shadow: 0px 0px 31px -5px rgba(0,0,0,0);
+            box-shadow: 0px 0px 31px -5px rgba(0,0,0,0);
+            background-color: #c7c7c7 !important;
+            cursor: initial;
+            pointer-events: none;
+        }
+
+        .rightSave input:active {
+            -webkit-box-shadow: 0px 0px 33px -3px rgba(0,0,0,0);
+            -moz-box-shadow: 0px 0px 33px -3px rgba(0,0,0,0);
+            box-shadow: 0px 0px 33px -3px rgba(0,0,0,0);
+            background-color: #47a9ff;
+        }

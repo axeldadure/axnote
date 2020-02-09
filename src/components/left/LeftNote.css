@@ -1,0 +1,33 @@
+.leftNoteCt {
+    display: block;
+    box-sizing: border-box;
+    padding: 20px 50px 20px 50px;
+    border-bottom: 1px solid #dddddd70;
+    cursor: pointer;
+    transition: 0.2s all ease-out;
+}
+
+    .leftNoteCt:hover,
+    .leftNoteCt.current {
+        background-color: #eef3f8;
+    }
+
+    .leftNoteTitle {
+        font-size: 17px;
+        font-weight: 600;
+        height: 20px;
+        overflow: hidden;
+        width: 100%;
+        margin-bottom: 4px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    
+    .leftNoteDesc {
+        color: #3a3a3a80;
+        height: 20px;
+        overflow: hidden;
+        width: 100%;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }

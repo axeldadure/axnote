@@ -1,0 +1,23 @@
+{"notes":  [
+        {"id": 1, 
+        "title": "Faire les courses pour l'anniversaire de Michel Jackson", 
+        "content":"Il faut bien que tu penses à acheter de pâtes !",
+        "important": false,
+        "tags": [1,2,3],
+        "date": null
+        },
+        {"id": 2, 
+        "title": "Recette des sushi", 
+        "content":"-Des pates, du beurre, du riz etc",
+        "important": false,
+        "tags": [1,2,4],
+        "date": null
+        }
+    ],
+"tags": [
+    {"id": 1, "tag": "courses"},
+    {"id": 2, "tag": "achats"},
+    {"id": 3, "tag": "maison"},
+    {"id": 4, "tag": "recette"}
+]
+}

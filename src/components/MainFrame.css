@@ -1,0 +1,19 @@
+.mainFrame {
+    width: 100vw;
+    height: calc(100vh - 42px);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+  }
+  
+    .leftFrame {
+      width: 450px;
+      background-color: #fff;
+      border-right: 1px solid #dddddd;
+      box-sizing: border-box;
+    }
+  
+    .rightFrame {
+      width: calc(100% - 450px);
+      box-sizing: border-box;
+    }
