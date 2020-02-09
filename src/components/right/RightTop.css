@@ -2,12 +2,33 @@
     width: 100%;
     height: 60px;
     border-bottom: 1px solid #dddddd;
-    position: relative;
+    position: relative;    
+    flex: 1;
 }
+
+    .rightTopDate {
+        opacity: 0.6;
+        position: absolute;
+        right: 90px;
+        line-height: 60px;
+        font-style: italic;
+        user-select: none;
+    }
+
+    .rightTopDate:after {
+        content: '';
+        display: block;
+        width: 1px;
+        height: 30px;
+        background-color: #bbb;
+        position: absolute;
+        right: -20px;
+        top: 15px;
+    }
 
     .rightTopBin {
         height: 24px;
-        right: 18px;
+        right: 25px;
         top: 18px;
         position: absolute;
         cursor: pointer;
@@ -21,3 +42,55 @@
         .rightTopBin img {
             height: 100%;
         }
+
+    
+    .rightSave {
+        width: 44px;
+        height: 44px;
+        position: absolute;
+        top: 8px;
+        left: 20px;
+    }
+
+        .rightSave:before {
+            width: 22px;
+            height: 22px;
+            top: 11px;
+            left: 11px;
+            display: block;
+            background-image: url('/icons/save.svg');
+            background-size: contain;
+            background-repeat: no-repeat;
+            content: "";
+            position: absolute;
+            pointer-events: none;
+            transition: 0.2s all ease-out;
+        }
+
+        .rightSave input {
+            background-color: #2599ff;
+            border-radius: 50%;
+            border: 0px solid #fff;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+            transition: 0.2s all ease-out;
+        }
+
+            .rightSave.off {
+                opacity: 0.3;
+            }
+
+                .rightSave.off::before {
+                    background-image: url('/icons/yes.svg');
+                }
+
+                .rightSave.off input {
+                    background-color: #c7c7c7 !important;
+                    cursor: initial;
+                    pointer-events: none;
+                }
+
+            .rightSave input:hover {
+                background-color: #6ebbfd;
+            }

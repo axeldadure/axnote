@@ -9,6 +9,7 @@ class RightContainer extends Component {
       currentId,
       currentTitle, 
       currentContent,
+      currentDate,
       handleTitleChange, 
       handleContentChange,
       handleDelete,
@@ -17,7 +18,7 @@ class RightContainer extends Component {
     return (
       <div className="rightFrame">
         <form onSubmit={(event) => handleSubmit(event)}>
-          <RightTop currentId={currentId} handleDelete={handleDelete}/>
+          <RightTop currentId={currentId} handleDelete={handleDelete} edited={edited} currentDate={currentDate} />
           <div className="rightTextCt">
               <div className="rightTextFlex">
                 <div className="rightTextInput">
@@ -29,10 +30,6 @@ class RightContainer extends Component {
                 </div>
               </div>
           </div>
-          
-          <div className={"rightSave" + (edited ? "" : " off")}>
-                <input type="submit" value="" />
-              </div>
         </form>
       </div>
     )

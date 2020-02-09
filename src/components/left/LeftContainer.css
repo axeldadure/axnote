@@ -1,9 +1,82 @@
 .leftTop {
     width: 100%;
     height: 60px;
+    box-sizing: border-box;
+    padding-top: 13px;
     border-bottom: 1px solid #dddddd;
     position: relative;
 }
+
+    .leftTopSearch {
+        width: 320px;
+        height: 35px;
+        margin-left: 65px;
+        position: relative;
+    }
+
+        .leftTopSearch:before {
+            width: 20px;
+            height: 20px;
+            display: block;
+            background-image: url('/icons/search.svg');
+            background-size: contain;
+            background-repeat: no-repeat;
+            content: "";
+            position: absolute;
+            top: 7px;
+            left: 14px;
+            opacity: 0.2;
+            pointer-events: none;
+        }
+
+        .leftTopSearch input {
+            width: 100%;
+            height: 100%;
+            line-height: 40px;
+            box-sizing: border-box;
+            padding-left: 45px;
+            padding-right: 35px;
+            transition: 0.2s all ease-out;
+            border: 1px solid #dddddd;
+            border-radius: 35px;
+            font-family: 'Nunito', sans-serif;
+            font-size: 15px;
+            color: #212121;
+        }
+
+            .leftTopSearch input:focus {
+                outline: none !important;
+                border: 1px solid #2599ff;
+            }
+
+            .searchNoResults {
+                font-size: 15px;
+                opacity: 0.7;
+                font-style: italic;
+                margin-top: 20px;
+                width: 100%;
+                text-align: center;
+            }
+
+            .leftTopClearSearch {
+                filter: grayscale(100);
+                position: absolute;
+                width: 20px;
+                height: 20px;
+                right: 10px;
+                top: 8px;
+                opacity: 0.7;
+                transition: 0.2s all ease-out;
+                cursor: pointer;
+            }
+
+                .leftTopClearSearch img {
+                    transform: rotate(45deg);
+                }
+
+                .leftTopClearSearch:hover {
+                    opacity: 1;
+                }
 
     .leftTopPlus {
         height: 24px;
@@ -21,3 +94,49 @@
         .leftTopPlus img {
             height: 100%;
         }
+
+        .inEditing .leftTopPlus {
+            cursor: initial;
+            opacity: 0.3;
+        }
+
+.leftNotesCt {
+    position: relative;
+    height: calc(100% - 60px);
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+.leftNotesCt::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+.leftNotesCt::-webkit-scrollbar-button {
+  width: 5px;
+  height: 5px;
+}
+.leftNotesCt::-webkit-scrollbar-thumb {
+  background: #949494;
+  border: 0px none #ffffff;
+  border-radius: 72px;
+}
+.leftNotesCt::-webkit-scrollbar-thumb:hover {
+  background: #515151;
+}
+.leftNotesCt::-webkit-scrollbar-thumb:active {
+  background: #000000;
+}
+.leftNotesCt::-webkit-scrollbar-track {
+  background: #dfdfdf70;
+  border: 0px none #ffffff;
+  border-radius: 23px;
+}
+.leftNotesCt::-webkit-scrollbar-track:hover {
+  background: #dfdfdf;
+}
+.leftNotesCt::-webkit-scrollbar-track:active {
+  background: #333333;
+}
+.leftNotesCt::-webkit-scrollbar-corner {
+  background: transparent;
+}

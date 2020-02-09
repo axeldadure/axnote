@@ -14,13 +14,16 @@ class MainFrame extends Component {
         this.state = this.setCurrentNote(this.findHighestId(NOTES))
     }
 
-    setCurrentNote(id) {
+    setCurrentNote(id, edited=false, newNote=false) {
         const currentNote= this.findInArray(NOTES, id);
         return {
+            empty: false,
             currentId: currentNote.id,
             currentTitle: currentNote.title,
             currentContent: currentNote.content,
-            edited: false,
+            currentDate: currentNote.date,
+            edited: edited,
+            newNote: newNote,
             showSavePopup: false,
             targetId: null,
         }
@@ -39,7 +42,7 @@ class MainFrame extends Component {
         const currentNote = this.findInArray(NOTES, this.state.currentId);
         currentNote.title = this.state.currentTitle;
         currentNote.content = this.state.currentContent;
-        this.setState(this.setCurrentNote(this.state.currentId));
+        this.setState(this.setCurrentNote(this.state.currentId,false,false));
     }
 
     handleTitleChange = (newTitle) => {
@@ -52,45 +55,82 @@ class MainFrame extends Component {
 
     handlePlusClick = () => {
         const newID = this.findHighestId(NOTES) + 1
+        const date = new Date();
+        const newdate = ('0' + (date.getUTCMonth() + 1)).slice(-2) + "." + ('0' + date.getUTCDate()).slice(-2) + "." + date.getUTCFullYear();
+
+        if (!this.state.edited) {
+            NOTES.push({
+                id: newID,
+                title:"New Note",
+                content: "",
+                important: false,
+                tags: [],
+                date: newdate,
+            });
+            this.setState(this.setCurrentNote(newID, true, true))
+        }
+    }
+
+    handleClickFromEmpty = () => {
+        const date = new Date();
+        const newdate = ('0' + (date.getUTCMonth() + 1)).slice(-2) + "." + ('0' + date.getUTCDate()).slice(-2) + "." + date.getUTCFullYear();
         NOTES.push({
-            id: newID,
-            title:"New Note",
+            id: 1,
+            title:"My First Note",
             content: "",
             important: false,
             tags: [],
-            date: null
+            date: newdate,
         })
-        this.setState(this.setCurrentNote(newID))
+        this.setState(this.setCurrentNote(1, true))
     }
 
     handleNoteClick = (id) => {
-        if (!this.state.edited) {
-            this.setState(this.setCurrentNote(id))
+        if (id !== this.state.currentId) {
+            if (!this.state.edited) {
+                this.setState(this.setCurrentNote(id))
+            }
+            else {
+                this.setState({
+                    targetId: id,
+                    showSavePopup: true
+                })
+            }
         }
-        else {
-            this.setState({
-                targetId: id,
-                showSavePopup: true
-            })
-        }
+    }
+
+    flagClick = (id, e) => {
+        e.stopPropagation(); 
+        const toSetImportant = this.findInArray(NOTES, id);
+        toSetImportant.important = !toSetImportant.important
+        this.setState(this.setCurrentNote(this.state.currentId))
     }
 
     handlePopupSave = () => {
         const currentNote = this.findInArray(NOTES, this.state.currentId);
         currentNote.title = this.state.currentTitle;
         currentNote.content = this.state.currentContent;
-        this.setState(this.setCurrentNote(this.state.targetId));
+        this.setState(this.setCurrentNote(this.state.targetId, false, false));
     }
 
     handlePopupDontSave = () => {
-        this.setState(this.setCurrentNote(this.state.targetId));
+        if (this.state.newNote) {
+            this.handleDelete(this.state.currentId)
+        } else {
+            this.setState(this.setCurrentNote(this.state.targetId));
+        }
     } 
 
     handleDelete = (id) => {
         NOTES = NOTES.filter(note => {
             return note.id !== id;
         });
-        this.setState(this.setCurrentNote(this.findHighestId(NOTES)))
+        if (NOTES.length > 0) {
+            this.setState(this.setCurrentNote(this.findHighestId(NOTES)))
+        }
+        else {
+            this.setState({empty: true})
+        }
     }
 
     componentDidUpdate(prevProps, prevState) {
@@ -104,27 +144,40 @@ class MainFrame extends Component {
       }
 
     render() {
-        const {currentId, currentTitle, currentContent, edited, showSavePopup} = this.state;
+        const {empty,currentId, currentTitle, currentContent, currentDate, edited, showSavePopup} = this.state;
         return (
           <div className="mainFrame">
 
-              {showSavePopup && <SavePopup handlePopupDontSave={this.handlePopupDontSave} handlePopupSave={this.handlePopupSave}/>}
-              <LeftContainer 
-              handlePlusClick={this.handlePlusClick}
-              notes={NOTES} 
-              currentId={currentId} 
-              onClick={this.handleNoteClick}/>
-
-              <RightContainer 
-              currentId={currentId} 
-              currentTitle={currentTitle}
-              currentContent={currentContent}
-              handleSubmit={this.handleSubmit}
-              handleTitleChange={this.handleTitleChange}
-              handleContentChange={this.handleContentChange}
-              handleDelete={this.handleDelete}
-              handleSubmit={this.handleSubmit}
-              edited={edited} />
+              {empty ? (
+                <div className="mainFrameEmpty">
+                    <div className="mainFrameEmptyIn" onClick={this.handleClickFromEmpty}>
+                        <img src="/icons/plus.svg" alt="add your first note" />
+                        <span>Add your first note</span>
+                    </div>
+                </div>
+              ):(
+                <div className="mainFrameFull">
+                    {showSavePopup && <SavePopup handlePopupDontSave={this.handlePopupDontSave} handlePopupSave={this.handlePopupSave}/>}
+                    <LeftContainer 
+                    handlePlusClick={this.handlePlusClick}
+                    notes={NOTES} 
+                    currentId={currentId} 
+                    onClick={this.handleNoteClick}
+                    flagClick={this.flagClick}
+                    edited={edited}/>
+    
+                    <RightContainer 
+                    currentId={currentId} 
+                    currentTitle={currentTitle}
+                    currentContent={currentContent}
+                    currentDate={currentDate}
+                    handleTitleChange={this.handleTitleChange}
+                    handleContentChange={this.handleContentChange}
+                    handleDelete={this.handleDelete}
+                    handleSubmit={this.handleSubmit}
+                    edited={edited} />
+                </div>
+              )}
           </div>
         )
     }

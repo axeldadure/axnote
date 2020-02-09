@@ -1,19 +1,67 @@
 .mainFrame {
     width: 100vw;
     height: calc(100vh - 42px);
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: row;
+    display: block;
+    overflow: hidden;
   }
-  
-    .leftFrame {
-      width: 450px;
-      background-color: #fff;
-      border-right: 1px solid #dddddd;
+
+    .mainFrameEmpty {
+      width: 100%;
+      height: 100%;
       box-sizing: border-box;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
-  
-    .rightFrame {
-      width: calc(100% - 450px);
+
+      .mainFrameEmptyIn {
+        padding: 20px;
+        width: 170px;
+        height: 170px;
+        border-radius: 15px;
+        background-color: #efefef70;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        cursor: pointer;
+        transition: 0.2s all ease-out;
+      }
+
+        .mainFrameEmptyIn img {
+          width: 70px;
+          display: block;
+        }
+
+        .mainFrameEmptyIn span {
+          display: block;
+          margin-top: 40px;
+          color: #2599ff;
+          font-size: 18px;
+          text-align: center;
+          font-weight: 700;
+        }
+
+        .mainFrameEmptyIn:hover {
+          opacity: 0.5;
+        }
+
+    .mainFrameFull {
+      width: 100%;
+      height: 100%;
       box-sizing: border-box;
+      display: flex;
+      flex-direction: row;
     }
+    
+      .leftFrame {
+        width: 450px;
+        background-color: #fff;
+        border-right: 1px solid #dddddd;
+        box-sizing: border-box;
+      }
+    
+      .rightFrame {
+        width: calc(100% - 450px);
+        box-sizing: border-box;
+      }

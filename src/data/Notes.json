@@ -4,14 +4,14 @@
         "content":"Il faut bien que tu penses à acheter de pâtes !",
         "important": false,
         "tags": [1,2,3],
-        "date": null
+        "date": "23.05.2019"
         },
         {"id": 2, 
         "title": "Recette des sushi", 
         "content":"-Des pates, du beurre, du riz etc",
-        "important": false,
+        "important": true,
         "tags": [1,2,4],
-        "date": null
+        "date": "26.08.2019"
         }
     ],
 "tags": [
