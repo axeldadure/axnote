@@ -8,7 +8,6 @@ function RightTop({currentId, currentDate, handleDelete, edited}) {
             <div className={"rightSave" + (edited ? "" : " off")}>
                 <input type="submit" value="" />
             </div>
-
             <div className="rightTopDate">Note created on the {currentDate}</div>
             <div className="rightTopBin" onClick={() => handleDelete(currentId)}>
                 <img src="icons/bin.svg" alt="delete note"/> 

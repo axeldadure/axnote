@@ -25,7 +25,8 @@
         position: absolute;
         height: 23px;
         width: 25px;
-        top: 30px;
+        top: 50%;
+        transform: translateY(-50%);
         left: 20px;
         filter: grayscale(100);
         opacity: 0.2;
@@ -69,4 +70,24 @@
         width: 100%;
         text-overflow: ellipsis;
         white-space: nowrap;
+    }
+
+    .leftNoteTags {
+        margin-top: 5px;
+        height: 18px;
+        overflow: hidden;
+    }
+
+    .leftNoteTag {
+        display: inline-block;
+        vertical-align: top;
+        margin-right: 5px;
+        font-size: 12px;
+        opacity: 0.8;
+        background-color: #eee;
+        line-height: 18px;
+        padding: 0px 10px;
+        border-radius: 20px;
+        font-weight: 600;
+        color: #212121;
     }

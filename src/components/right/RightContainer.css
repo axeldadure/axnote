@@ -9,7 +9,7 @@
 
     .rightTextCt {
         width: 100%;
-        height: calc(100% - 60px);
+        height: calc(100% - 90px);
         padding: 40px;
         box-sizing: border-box;
         position: relative;

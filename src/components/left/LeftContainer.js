@@ -46,7 +46,7 @@ class LeftContainer extends Component {
             handleSearchChange={this.handleSearchChange} 
             handleClearSearch={this.handleClearSearch} 
             searchValue={this.state.searchValue}/>
-            <div class="leftNotesCt">
+            <div className="leftNotesCt">
                 {notesFiltered.length === 0 && <div className="searchNoResults">Sorry, no notes matches the search...</div>}
 
                 {notesFiltered.map(note => (
@@ -58,6 +58,7 @@ class LeftContainer extends Component {
                     onClick={onClick}
                     noteTitle={note.title}
                     noteContent={note.content}
+                    noteTags={note.tags}
                     flagClick={flagClick}
                     />
                 )).reverse()}

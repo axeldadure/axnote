@@ -3,7 +3,7 @@
     height: 60px;
     border-bottom: 1px solid #dddddd;
     position: relative;    
-    flex: 1;
+    box-sizing: border-box;
 }
 
     .rightTopDate {

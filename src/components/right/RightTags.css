@@ -1,0 +1,29 @@
+.rightTopTags {
+    width: 100%;
+    height: 30px;
+    border-bottom: 1px solid #dddddd;
+    position: relative;    
+    box-sizing: border-box;
+    padding: 3px 25px;
+}
+
+    .rightTopTag {
+        line-height: 24px;
+        display: inline-block;
+        vertical-align: top;
+        margin-right: 6px;
+        color: #fff;
+        font-size: 14px;
+        font-weight: 600;
+        background-color: #2599ff;
+        padding: 0px 10px;
+        border-radius: 25px;
+        transition: 0.2s all ease-out;
+        cursor: pointer;
+    }
+
+    .rightTopTag.off {
+        background-color: #eee;
+        color: #212121;
+        opacity: 0.7;
+    }

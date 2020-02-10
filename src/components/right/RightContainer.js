@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import RightTop from './RightTop';
+import RightTags from './RightTags';
 
 import './RightContainer.css';
 
@@ -10,15 +11,18 @@ class RightContainer extends Component {
       currentTitle, 
       currentContent,
       currentDate,
+      currentTags,
       handleTitleChange, 
       handleContentChange,
       handleDelete,
+      handleTagClick,
       handleSubmit,
       edited} = this.props
     return (
       <div className="rightFrame">
         <form onSubmit={(event) => handleSubmit(event)}>
           <RightTop currentId={currentId} handleDelete={handleDelete} edited={edited} currentDate={currentDate} />
+          <RightTags currentTags={currentTags} handleTagClick={handleTagClick} />
           <div className="rightTextCt">
               <div className="rightTextFlex">
                 <div className="rightTextInput">

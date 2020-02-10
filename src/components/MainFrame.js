@@ -22,6 +22,7 @@ class MainFrame extends Component {
             currentTitle: currentNote.title,
             currentContent: currentNote.content,
             currentDate: currentNote.date,
+            currentTags: currentNote.tags,
             edited: edited,
             newNote: newNote,
             showSavePopup: false,
@@ -34,7 +35,7 @@ class MainFrame extends Component {
     }
 
     findHighestId(array) {
-        return Math.max.apply(Math, array.map(function(o) { return o.id; }))
+        return Math.max.apply(Math, array.map(o => { return o.id; }))
     }
 
     handleSubmit = (event) => {
@@ -133,6 +134,20 @@ class MainFrame extends Component {
         }
     }
 
+    handleTagClick = (tagId) => {
+        let newTags = this.state.currentTags
+        if (newTags.includes(tagId)) {
+            newTags = newTags.filter(tag => {
+                return tag !== tagId;
+            });
+        }
+        else {
+            newTags.push(tagId);
+        }
+        this.findInArray(NOTES, this.state.currentId).tags = newTags;
+        this.setState({currentTags: newTags})
+    }
+
     componentDidUpdate(prevProps, prevState) {
         const {currentId, currentTitle, currentContent} = this.state
         if (currentId === prevState.currentId) {
@@ -144,7 +159,7 @@ class MainFrame extends Component {
       }
 
     render() {
-        const {empty,currentId, currentTitle, currentContent, currentDate, edited, showSavePopup} = this.state;
+        const {empty,currentId, currentTitle, currentContent, currentDate, currentTags, edited, showSavePopup} = this.state;
         return (
           <div className="mainFrame">
 
@@ -171,10 +186,12 @@ class MainFrame extends Component {
                     currentTitle={currentTitle}
                     currentContent={currentContent}
                     currentDate={currentDate}
+                    currentTags={currentTags}
                     handleTitleChange={this.handleTitleChange}
                     handleContentChange={this.handleContentChange}
                     handleDelete={this.handleDelete}
                     handleSubmit={this.handleSubmit}
+                    handleTagClick={this.handleTagClick}
                     edited={edited} />
                 </div>
               )}

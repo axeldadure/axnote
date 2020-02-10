@@ -15,9 +15,9 @@
         }
     ],
 "tags": [
-    {"id": 1, "tag": "courses"},
-    {"id": 2, "tag": "achats"},
-    {"id": 3, "tag": "maison"},
-    {"id": 4, "tag": "recette"}
+    {"id": 1, "tagName": "courses"},
+    {"id": 2, "tagName": "achats"},
+    {"id": 3, "tagName": "maison"},
+    {"id": 4, "tagName": "recette"}
 ]
 }
