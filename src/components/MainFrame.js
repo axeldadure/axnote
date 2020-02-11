@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import _ from 'underscore';
 import LeftContainer from './left/LeftContainer';
 import RightContainer from './right/RightContainer';
 import SavePopup from './SavePopup';
@@ -6,7 +7,7 @@ import Notes from '../data/Notes.json';
 
 import './MainFrame.css';
 
-let NOTES = Notes.notes
+let NOTES = Notes.notes;
 
 class MainFrame extends Component {
     constructor(props) {
@@ -124,7 +125,7 @@ class MainFrame extends Component {
 
     handleDelete = (id) => {
         NOTES = NOTES.filter(note => {
-            return note.id !== id;
+           return note.id !== id;
         });
         if (NOTES.length > 0) {
             this.setState(this.setCurrentNote(this.findHighestId(NOTES)))
