@@ -12,6 +12,7 @@ class RightContainer extends Component {
       currentContent,
       currentDate,
       currentTags,
+      allTags,
       handleTitleChange, 
       handleContentChange,
       handleDelete,
@@ -22,7 +23,7 @@ class RightContainer extends Component {
       <div className="rightFrame">
         <form onSubmit={(event) => handleSubmit(event)}>
           <RightTop currentId={currentId} handleDelete={handleDelete} edited={edited} currentDate={currentDate} />
-          <RightTags currentTags={currentTags} handleTagClick={handleTagClick} />
+          <RightTags currentTags={currentTags} allTags={allTags} handleTagClick={handleTagClick} />
           <div className="rightTextCt">
               <div className="rightTextFlex">
                 <div className="rightTextInput">

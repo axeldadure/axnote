@@ -1,21 +1,35 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import _ from 'underscore'
 import LeftNote from './LeftNote';
+import LeftAddTag from './LeftAddTag';
+
 import Notes from '../../data/Notes.json';
+
+
+import TAGS from '../MainFrame';
 
 import './LeftContainer.css';
 
-function LeftTop({handlePlusClick, handleSearchChange, handleClearSearch, searchValue, tagsValue, handleTagsChange}) {
+function LeftTop({handlePlusClick, handleSearchChange, handleClearSearch, searchValue, tagsValue, handleTagClick, handleAddTag, handleTagDelete, allTags}) {
+
+    const [tagsOpened, setTagsOpened] = useState(false);
+
     return (
         <div className="leftTop">
             <div className="leftTopTags">
-                <div className="leftTopTagsClick"></div>
-                <div className="leftTopTagsCt">
-                    <select value={tagsValue} onClick={(event) => handleTagsChange(event.target.value)} multiple={true}>
-                        {Notes.tags.map(tag => (
-                            <option key={tag.id} value={tag.id}>{tag.tagName}</option>
-                        ))}
-                    </select>
+                <div className="leftTopTagsClick" onClick={() => setTagsOpened(!tagsOpened)}>
+                    <img src="/icons/tag.svg" />
+                </div>
+                <div className={"leftTopTagsCt" + (tagsOpened ? " tagsOpened":"")}>
+                    {allTags.map(tag => (
+                        <div className={"leftTopTagCt" + (tagsValue.includes(tag.id) ? " tagOn" : "")} 
+                        key={tag.id} 
+                        onClick={() => handleTagClick(tag.id)}
+                        value={tag.id}><span>{tag.tagName}</span>
+                        <div className="leftTopTagCtDelete" onClick={(e) => handleTagDelete(tag.id, e)}></div>
+                        </div>
+                    ))}
+                    <LeftAddTag handleAddTag={handleAddTag} />
                 </div>
             </div>
             <div className="leftTopSearch">
@@ -47,7 +61,7 @@ class LeftContainer extends Component {
         this.setState({searchValue: ""});
     }
 
-    handleTagsChange = (value) => {
+    handleTagClick = (value) => {
         const parsedValue = parseInt(value)
         this.setState(prevState => {
             if(prevState.tagsValue.includes(parsedValue)) {
@@ -58,7 +72,7 @@ class LeftContainer extends Component {
     }
 
     render() {
-        const {handlePlusClick, notes, currentId, onClick, flagClick, edited} = this.props;
+        const {handlePlusClick, notes, currentId, onClick, flagClick, edited, handleAddTag, handleTagDelete, allTags} = this.props;
 
         const notesByTag = notes.filter(note => (note.tags.reduce((result, current) => {
             return this.state.tagsValue.includes(current) || result;
@@ -76,7 +90,10 @@ class LeftContainer extends Component {
             handleClearSearch={this.handleClearSearch} 
             searchValue={this.state.searchValue}
             tagsValue={this.state.tagsValue}
-            handleTagsChange={this.handleTagsChange}/>
+            handleTagClick={this.handleTagClick}
+            handleAddTag={handleAddTag}
+            handleTagDelete={handleTagDelete}
+            allTags={allTags} />
 
             <div className="leftNotesCt">
                 {notesBySearchTag.length === 0 && <div className="searchNoResults">Sorry, no notes matches the search...</div>}

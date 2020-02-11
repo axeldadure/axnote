@@ -8,6 +8,7 @@ import Notes from '../data/Notes.json';
 import './MainFrame.css';
 
 let NOTES = Notes.notes;
+let TAGS = Notes.tags;
 
 class MainFrame extends Component {
     constructor(props) {
@@ -149,6 +150,27 @@ class MainFrame extends Component {
         this.setState({currentTags: newTags})
     }
 
+    handleAddTag = (newTag) => {
+        const newTagId = this.findHighestId(TAGS)>0 ? this.findHighestId(TAGS) : 1;
+        TAGS.push({ id:newTagId+1 , tagName:newTag});
+        this.forceUpdate();
+    }
+
+    handleTagDelete = (tagId, e) => {
+        e.stopPropagation(); 
+        TAGS = TAGS.filter(tag => {
+            return tag.id !== tagId;
+         });
+
+        NOTES.forEach(note => {
+            note.tags = note.tags.filter(tag => {
+                return tag !== tagId
+            })
+            console.log(note.tags)
+        });
+        this.forceUpdate();
+    }
+
     componentDidUpdate(prevProps, prevState) {
         const {currentId, currentTitle, currentContent} = this.state
         if (currentId === prevState.currentId) {
@@ -180,7 +202,10 @@ class MainFrame extends Component {
                     currentId={currentId} 
                     onClick={this.handleNoteClick}
                     flagClick={this.flagClick}
-                    edited={edited}/>
+                    edited={edited}
+                    handleAddTag={this.handleAddTag}
+                    handleTagDelete={this.handleTagDelete} 
+                    allTags={TAGS} />
     
                     <RightContainer 
                     currentId={currentId} 
@@ -188,6 +213,7 @@ class MainFrame extends Component {
                     currentContent={currentContent}
                     currentDate={currentDate}
                     currentTags={currentTags}
+                    allTags={TAGS}
                     handleTitleChange={this.handleTitleChange}
                     handleContentChange={this.handleContentChange}
                     handleDelete={this.handleDelete}

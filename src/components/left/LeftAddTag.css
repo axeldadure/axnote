@@ -1,0 +1,63 @@
+.leftTopAddTag {
+    width: 100%;
+    height: 40px;
+    position: relative;
+}
+
+.leftTopAddTag .leftTopAddTagTxt {
+    height: 40px;
+    display: block;
+    line-height: 40px;
+    border:none;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0px 20px 0px 15px;
+}
+
+.leftTopAddTag .leftTopAddTagTxt:focus {
+    outline: none!important;
+}
+
+.leftTopAddTagSub {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    transition: 0.2s all ease-out;
+}
+
+    .leftTopAddTagSub.submitOff {
+        pointer-events: none;
+        opacity: 0;
+    }
+
+    .leftTopAddTagSub:hover {
+        opacity: 0.5;
+    }
+
+    .leftTopAddTagSub::before {
+        width: 100%;
+        height: 100%;
+        content: "";
+        display: block;
+        pointer-events: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-image: url(/icons/plus.svg);
+    }
+
+    .leftTopAddTagSub input {
+        background: none;
+        border: none;
+        width: 100%;
+        height: 100%;
+        display: block;
+        cursor: pointer;
+    }
+
+    .leftTopAddTagSub input:focus {
+        outline: none!important;
+    }

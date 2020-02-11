@@ -65,7 +65,7 @@
     
     .leftNoteDesc {
         color: #3a3a3a80;
-        height: 20px;
+        max-height: 20px;
         overflow: hidden;
         width: 100%;
         text-overflow: ellipsis;

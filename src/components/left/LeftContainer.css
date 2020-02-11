@@ -11,8 +11,9 @@
         position: absolute;
         z-index: 200;
         left: 15px;
-        width: 35px;
-        height: 35px;
+        top: 15px;
+        width: 30px;
+        height: 30px;
     }
 
         .leftTopTagsClick {
@@ -20,50 +21,124 @@
             height: 100%;
             display: block;
             position: relative;
-            background-color: red;
+            cursor: pointer;
+            transition: 0.2s all ease-out;
         }
+
+        .leftTopTagsClick:hover {
+            transform: rotate(-10deg);
+            opacity: 0.5;
+        }
+
+            .leftTopTagsClick img {
+                width: 100%;
+            }
 
         .leftTopTagsCt {
             position: absolute;
             top: 35px;
             left: 0px;
             width: 200px;
+            background-color: #fff;
+            -webkit-box-shadow: 0px 2px 23px -8px rgba(0,0,0,0.4);
+            -moz-box-shadow: 0px 2px 23px -8px rgba(0,0,0,0.4);
+            box-shadow: 0px 2px 23px -8px rgba(0,0,0,0.4);
+            max-height: 0px;
+            transition: 0.2s all ease-out;
             overflow: hidden;
-            border-bottom-left-radius: 15px;
-            border-bottom-right-radius: 15px;
-            border-top-right-radius: 15px;
-            background-color: #eeeeee;
-            outline: none!important;
         }
 
-            .leftTopTagsCt select {
-                width: 100%;
-                overflow: hidden;    
-                -webkit-appearance: none;
-                -moz-appearance: none;
-                appearance: none;
+            .leftTopTagsCt.tagsOpened {
+                max-height: none;
             }
 
-            .leftTopTagsCt select option {
-                background-color: #eeeeee;
+            .leftTopTagCt {
+                position: relative;
+                width: 100%;
+                line-height: 39px;
+                height: 40px;
+                overflow: hidden;
                 font-size: 16px;
-                font-family: 'Nunito', sans-serif;
-                padding: 0px 10px 0 30px;
-                display: block;
+                font-weight: 600;
+                padding: 0px 30px 0px 40px;
                 color: #212121;
-                min-height: 30px;
-                line-height: 30px !important;
+                box-sizing: border-box;
+                border-bottom: 1px solid #eee;
                 transition: 0.2s all ease-out;
                 cursor: pointer;
             }
 
-            .leftTopTagsCtselect:-internal-list-box option:checked {
-                background-color: #eee !important;
-                color: -internal-inactive-list-box-selection-text !important;
+                .leftTopTagCt:hover {
+                    background-color: #ddefff;
+                }
+
+                .leftTopTagCt::before {
+                    display: block;
+                    content: "";
+                    width: 14px;
+                    height: 14px;
+                    box-sizing: border-box;
+                    border-radius: 3px;
+                    border: 2px solid #2599ff;
+                    top: 13px;
+                    left: 13px;
+                    position: absolute;
+                    transition: 0.2s all ease-out;
+                }
+
+                .leftTopTagCt::after {
+                    display: block;
+                    content: "";
+                    width: 8px;
+                    height: 8px;
+                    box-sizing: border-box;
+                    border-radius: 1px;
+                    background-color: #2599ff;
+                    opacity: 0;
+                    top: 16px;
+                    left: 16px;
+                    position: absolute;
+                    transition: 0.2s all ease-out;
+                }
+
+                    .leftTopTagCt.tagOn::after {
+                        opacity: 1;
+                    }
+
+                    .leftTopTagCt span {
+                        display: block;
+                        width: 100%;
+                        overflow: hidden;
+                    }
+
+        .leftTopTagCtDelete {
+            width: 17px;
+            height: 17px;
+            display: block;
+            position: absolute;
+            top: 11px;
+            right: 10px;
+            cursor: pointer;
+        }
+
+            .leftTopTagCtDelete:after {
+                width: 100%;
+                height: 100%;
+                content: "";
+                display: block;
+                pointer-events: none;
+                position: absolute;
+                top: 0;
+                left: 0;
+                background-image: url(/icons/plus.svg);
+                transform: rotate(45deg);
+                filter: grayscale(100);
+                opacity: 0.6;
+                transition: 0.2s all ease-out;
             }
 
-            select:-internal-list-box option {
-                line-height: initial !important;
+            .leftTopTagCtDelete:hover:after {
+                opacity: 1;
             }
 
     .leftTopSearch {
