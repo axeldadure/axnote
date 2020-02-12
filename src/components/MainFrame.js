@@ -3,6 +3,7 @@ import LeftContainer from './left/LeftContainer';
 import RightContainer from './right/RightContainer';
 import SavePopup from './SavePopup';
 import Notes from '../data/Notes.json';
+import plus from '../icons/plus.svg'
 
 import './MainFrame.css';
 
@@ -188,7 +189,7 @@ class MainFrame extends Component {
               {empty ? (
                 <div className="mainFrameEmpty">
                     <div className="mainFrameEmptyIn" onClick={this.handleClickFromEmpty}>
-                        <img src="/icons/plus.svg" alt="add your first note" />
+                        <img src={plus} alt="add your first note" />
                         <span>Add your first note</span>
                     </div>
                 </div>

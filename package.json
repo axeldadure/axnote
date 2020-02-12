@@ -1,6 +1,7 @@
 {
   "name": "axnote",
   "version": "1.0.0",
+  "homepage": "https://axeldadure.com/axnote/",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",

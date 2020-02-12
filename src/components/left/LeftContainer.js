@@ -1,6 +1,8 @@
 import React, { Component, useState } from 'react';
 import LeftNote from './LeftNote';
 import LeftAddTag from './LeftAddTag';
+import tagIcon from '../../icons/tag.svg';
+import plus from '../../icons/plus.svg'
 
 import './LeftContainer.css';
 
@@ -12,7 +14,7 @@ function LeftTop({handlePlusClick, handleSearchChange, handleClearSearch, search
         <div className="leftTop">
             <div className="leftTopTags">
                 <div className="leftTopTagsClick" onClick={() => setTagsOpened(!tagsOpened)}>
-                    <img src="/icons/tag.svg" alt="tag icon"/>
+                    <img src={tagIcon} alt="tags"/>
                 </div>
                 <div className={"leftTopTagsCt" + (tagsOpened ? " tagsOpened":"")}>
                     {allTags.map(tag => (
@@ -28,10 +30,10 @@ function LeftTop({handlePlusClick, handleSearchChange, handleClearSearch, search
             </div>
             <div className="leftTopSearch">
                 <input type="text" value={searchValue} onChange={(event) => handleSearchChange(event.target.value)} placeholder="Search..." maxLength="100"/>
-                {searchValue.length > 0 && <div className="leftTopClearSearch" onClick={() => handleClearSearch()}><img src="icons/plus.svg" alt="clear search"/></div>}
+                {searchValue.length > 0 && <div className="leftTopClearSearch" onClick={() => handleClearSearch()}><img src={plus} alt="clear search"/></div>}
             </div>
             <div className="leftTopPlus" onClick={() => handlePlusClick()}>
-                <img src="icons/plus.svg" alt="add note"/> 
+                <img src={plus} alt="add note"/> 
             </div>
         </div>
     )

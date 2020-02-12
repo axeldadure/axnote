@@ -1,4 +1,5 @@
 import React from 'react';
+import bin from '../../icons/bin.svg'
 import './RightTop.css';
 
 function RightTop({currentId, currentDate, handleDelete, edited}) {
@@ -9,7 +10,7 @@ function RightTop({currentId, currentDate, handleDelete, edited}) {
             </div>
             <div className="rightTopDate">Note created on the {currentDate}</div>
             <div className="rightTopBin" onClick={() => handleDelete(currentId)}>
-                <img src="icons/bin.svg" alt="delete note"/> 
+                <img src={bin} alt="delete note"/> 
             </div>
         </div>
     )

@@ -130,7 +130,7 @@
                 position: absolute;
                 top: 0;
                 left: 0;
-                background-image: url(/icons/plus.svg);
+                background-image: url(../../icons/plus.svg);
                 transform: rotate(45deg);
                 filter: grayscale(100);
                 opacity: 0.6;
@@ -152,7 +152,7 @@
             width: 20px;
             height: 20px;
             display: block;
-            background-image: url('/icons/search.svg');
+            background-image: url('../../icons/search.svg');
             background-size: contain;
             background-repeat: no-repeat;
             content: "";

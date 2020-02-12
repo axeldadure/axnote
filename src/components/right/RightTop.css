@@ -58,7 +58,7 @@
             top: 11px;
             left: 11px;
             display: block;
-            background-image: url('/icons/save.svg');
+            background-image: url('../../icons/save.svg');
             background-size: contain;
             background-repeat: no-repeat;
             content: "";
@@ -82,7 +82,7 @@
             }
 
                 .rightSave.off::before {
-                    background-image: url('/icons/yes.svg');
+                    background-image: url('../../icons/yes.svg');
                 }
 
                 .rightSave.off input {

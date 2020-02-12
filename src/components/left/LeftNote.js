@@ -1,5 +1,6 @@
 import React from 'react';
-import Notes from '../../data/Notes'
+import Notes from '../../data/Notes';
+import flag from '../../icons/flag-red.svg';
 
 import './LeftNote.css';
 
@@ -13,7 +14,7 @@ function LeftNote({id, important, current, onClick, noteTitle, noteContent, note
 
   return (
     <div className={"leftNoteCt " + (current ? "current":"") + (important ? " important":"")} onClick={() => onClick(id)}>
-      <div className="leftNoteFlag" onClick={(e) => flagClick(id, e)}><img src="/icons/flag-red.svg" alt="flag"/></div>
+      <div className="leftNoteFlag" onClick={(e) => flagClick(id, e)}><img src={flag} alt="flag"/></div>
       <div className="leftNoteTitle">
           {noteTitle}
       </div>
