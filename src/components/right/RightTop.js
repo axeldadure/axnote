@@ -1,5 +1,4 @@
 import React from 'react';
-
 import './RightTop.css';
 
 function RightTop({currentId, currentDate, handleDelete, edited}) {

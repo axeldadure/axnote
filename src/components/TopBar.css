@@ -4,7 +4,42 @@
     padding: 0px 25px;
     height: 42px;
     line-height: 42px;
-    text-align: right;
+    text-align: left;
+    position: relative;
     color: #fff;
     background-color: #212121;
+}
+
+.topBarLeft {
+    float: left;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.topBarRight {
+    float: right;
+}
+
+.topBarRight a {
+    line-height: 42px;
+    vertical-align: top;
+    display: inline-block;
+    margin-left: 25px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+    transition: 0.2s all ease-out;
+}
+
+.topBarRight a:hover {
+    opacity: 0.5;
+}
+
+.lienGit {
+}
+
+.lienGit img {
+    width: 25px;
+    position: relative;
+    top: 7px;
 }

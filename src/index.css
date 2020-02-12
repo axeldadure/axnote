@@ -7,4 +7,12 @@ body {
   font-size: 15px;
   line-height: 20px;
   color: #212121;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+}
+
+@media (max-width: 970px) {
+  body {
+  }
 }

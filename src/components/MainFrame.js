@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import _ from 'underscore';
 import LeftContainer from './left/LeftContainer';
 import RightContainer from './right/RightContainer';
 import SavePopup from './SavePopup';
@@ -37,7 +36,7 @@ class MainFrame extends Component {
     }
 
     findHighestId(array) {
-        return Math.max.apply(Math, array.map(o => { return o.id; }))
+        return Math.max.apply(Math, array.map(o => {return o.id;}))
     }
 
     handleSubmit = (event) => {

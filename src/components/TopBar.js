@@ -4,7 +4,11 @@ import './TopBar.css';
 function TopBar() {
   return (
     <div className="topBar">
-      this is the top bar
+      <div className="topBarLeft">axNote <span>v1.0</span></div>
+      <div className="topBarRight">
+        <a href="http://axeldadure.com/" target="_blank" rel="noopener noreferrer">a simple ReactJS app made by Axel Dadure</a>
+        <a href="https://github.com/axeldadure/axnote" target="_blank" className="lienGit" rel="noopener noreferrer"><img src="/icons/git.svg" alt="git icon"/></a>
+      </div>
     </div>
   )
 }

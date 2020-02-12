@@ -1,12 +1,6 @@
 import React, { Component, useState } from 'react';
-import _ from 'underscore'
 import LeftNote from './LeftNote';
 import LeftAddTag from './LeftAddTag';
-
-import Notes from '../../data/Notes.json';
-
-
-import TAGS from '../MainFrame';
 
 import './LeftContainer.css';
 
@@ -18,7 +12,7 @@ function LeftTop({handlePlusClick, handleSearchChange, handleClearSearch, search
         <div className="leftTop">
             <div className="leftTopTags">
                 <div className="leftTopTagsClick" onClick={() => setTagsOpened(!tagsOpened)}>
-                    <img src="/icons/tag.svg" />
+                    <img src="/icons/tag.svg" alt="tag icon"/>
                 </div>
                 <div className={"leftTopTagsCt" + (tagsOpened ? " tagsOpened":"")}>
                     {allTags.map(tag => (

@@ -1,9 +1,7 @@
 import React from 'react';
-import Notes from '../../data/Notes'
-
 import './RightTags.css';
 
-function RightTags({currentTags, allTags, handleTagClick}) {
+function RightTags({allTags, currentTags, handleTagClick}) {
 
     return (
         <div className="rightTopTags">

@@ -1,8 +1,7 @@
 import React from 'react';
-
 import './SavePopup.css';
 
-function SavePopup({handlePopupDontSave, handlePopupSave}) {
+function SavePopup({handlePopupSave, handlePopupDontSave}) {
   return (
     <div className="savePopupCt">
         <div className="savePopupIn">

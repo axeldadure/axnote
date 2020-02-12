@@ -1,23 +1,37 @@
 {"notes":  [
         {"id": 1, 
-        "title": "Faire les courses pour l'anniversaire de Michel Jackson", 
-        "content":"Il faut bien que tu penses à acheter de pâtes !",
+        "title": "Mary's Christmas wishlist...", 
+        "content":"For Christmas, apparently Mary wants :\n\n-Bear Grylls hunting knife\n-John Wayne's end of the world survival kit\n-Water resistant walking shoes\n-6 months worth of food and water supplies\n-A bionicle robot toy\n-A first aid kit\n-A water purifier\n\nI think she might be a bit young for the Bionicle though...",
         "important": false,
-        "tags": [1,2,3],
-        "date": "23.05.2019"
+        "tags": [1,4],
+        "date": "23.12.2018"
         },
         {"id": 2, 
-        "title": "Recette des sushi", 
-        "content":"-Des pates, du beurre, du riz etc",
+        "title": "About axNote", 
+        "content":"This is my version of a simple react note taking app in ReactJS. I mainly wanted to train my React skills and test out new functionalities.\n\nA few thing that you can do with this app :\n-Add and/or edit notes, each with a title, a content and optional tags.\n-Delete a note\n-Filter the notes panel by search\n-Filter the notes panel by tags\n-Add new tags\n-Be warned if you didn't save your note\n\nAnyway, you can try it by yourself !\n\nGithub :\nhttps://github.com/axeldadure/axnote",
         "important": true,
-        "tags": [1,2,4],
-        "date": "26.08.2019"
+        "tags": [1,2],
+        "date": "14.06.2019"
+        },
+        {"id": 3, 
+        "title": "Stupid ideas of useless apps", 
+        "content":"Unordered:\n\n-An app that matches you with a dog from a shelter based on your preferences\n-An app that calculates exactly how much food and which type to get in case of an end of the world scenario\n-A calculator that always gives you -1 or +1 on the answer but you don't know which one\n-A note taking app in ReactJS\n-An app that create actual readable and funny random content like Lorem Ipsum so that I don't have to type this myself",
+        "important": false,
+        "tags": [1,3,4],
+        "date": "23.01.2020"
+        },
+        {"id": 4, 
+        "title": "How to use axNote", 
+        "content":"This is a guide on how to use axNote :\n\nJust figure it out it's not that hard there is like 4 buttons.\nFeel free to toy with it and report a bug if you see one.",
+        "important": false,
+        "tags": [2,4],
+        "date": "12.02.2020"
         }
     ],
 "tags": [
-    {"id": 1, "tagName": "courses"},
-    {"id": 2, "tagName": "achats"},
-    {"id": 3, "tagName": "maison"},
-    {"id": 4, "tagName": "recette"}
+    {"id": 1, "tagName": "list"},
+    {"id": 2, "tagName": "tutorial"},
+    {"id": 3, "tagName": "random ideas"},
+    {"id": 4, "tagName": "useless"}
 ]
 }
