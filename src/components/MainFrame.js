@@ -13,7 +13,7 @@ let TAGS = Notes.tags;
 class MainFrame extends Component {
     constructor(props) {
         super(props);
-        this.state = this.setCurrentNote(this.findHighestId(NOTES))
+        this.state = this.setCurrentNote(2)
     }
 
     setCurrentNote(id, edited=false, newNote=false) {
